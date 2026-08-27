@@ -46,7 +46,7 @@ public final class NoTermTooltipClient implements ClientModInitializer {
     public static boolean shouldHide() {
         if (!onSkyblock || !onDungeons) return false;
 
-        var screen = Minecraft.getInstance().screen;
+        var screen = Minecraft.getInstance().gui.screen();
         if (screen == null) return false;
         var title = screen.getTitle().getString(64);
 
