@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "${mod_id}",
   "version": "${mod_version}",
-  "name": "No Terminal Tooltip",
+  "name": "No Terminal Tooltips",
   "description": "Hides item tooltips in F7 terminals",
   "authors": [
     "sophur"
