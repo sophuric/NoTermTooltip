@@ -6,6 +6,9 @@ fabric_loom = "1.17-SNAPSHOT"
 
 fabric_api = "0.154.2+26.1.2"
 
+hypixelModAPI = "1.0.2"
+hypixelModAPI_mod = "1.0.2+build.1+mc26.1"
+
 minotaur = "2.+"
 
 devAuth = "1.2.2"
@@ -22,6 +25,9 @@ minecraft = { group = "mojang", name = "minecraft", version.ref = "minecraft" }
 
 fabric_loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric_loader" }
 fabric_api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric_api" }
+
+hypixelModAPI = { group = "net.hypixel", name = "mod-api", version.ref = "hypixelModAPI" }
+hypixelModAPI_mod = { group = "maven.modrinth", name = "hypixel-mod-api", version.ref = "hypixelModAPI_mod" }
 
 devAuth = { group = "me.djtheredstoner", name = "DevAuth-fabric", version.ref = "devAuth" }
 modMenu = { group = "maven.modrinth", name = "modmenu", version.ref = "modMenu" }

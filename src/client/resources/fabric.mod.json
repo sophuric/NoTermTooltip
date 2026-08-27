@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "No Terminal Tooltip",
+  "description": "Hides item tooltips in F7 terminals",
+  "authors": [
+    "sophur"
+  ],
+  "contact": {
+    "sources": "https://github.com/sophuric/NoTermTooltip"
+  },
+  "license": "MPL-2.0",
+  "icon": "assets/${mod_id}/icon.png",
+  "environment": "client",
+  "accessWidener": "${mod_id}.classtweaker",
+  "entrypoints": {
+    "client": [
+      "${mod_group}.NoTermTooltipClient"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.client.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "hypixel-mod-api": ">=${hypixel_mod_api_version}"
+  }
+}

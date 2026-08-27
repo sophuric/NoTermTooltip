@@ -23,19 +23,23 @@ loom {
             jvmArguments.addAll("-Ddevauth.enabled=true")
         }
 
-        //remove(runs["server"])
+        remove(runs["server"])
     }
 
     mods.create(modID) {
-        sourceSet(sourceSets.getByName("main"))
         sourceSet(sourceSets.getByName("client"))
     }
 
-    accessWidenerPath = file("src/main/resources/$modID.classtweaker")
+    accessWidenerPath = file("src/client/resources/$modID.classtweaker")
 }
 
 repositories {
     mavenCentral()
+
+    exclusiveContent {
+        forRepository { maven("https://repo.hypixel.net/repository/Hypixel/") { name = "Hypixel" } }
+        filter { includeGroup("net.hypixel") }
+    }
 
     exclusiveContent {
         forRepository { maven("https://api.modrinth.com/maven") { name = "Modrinth" } }
@@ -53,7 +57,9 @@ dependencies {
 
     implementation(libs.fabric.loader)
     implementation(libs.fabric.api)
+    implementation(libs.hypixelModAPI)
 
+    localRuntime(libs.hypixelModAPI.mod)
     localRuntime(libs.devAuth)
     localRuntime(libs.modMenu)
     localRuntime(libs.noChatRestrictions)
@@ -67,6 +73,7 @@ val resourcesVars = mapOf(
     "fabric_loader_version" to libs.versions.fabric.loader.get(),
     "fabric_api_version" to libs.versions.fabric.api.get(),
     "minecraft_version" to libs.versions.minecraft.get(),
+    "hypixel_mod_api_version" to libs.versions.hypixelModAPI.mod.get(),
 )
 
 tasks.withType<ProcessResources> {
