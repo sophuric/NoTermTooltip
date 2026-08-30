@@ -1,18 +1,11 @@
 package me.sophur.notermtooltip;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.hypixel.data.type.GameType;
 import net.hypixel.modapi.HypixelModAPI;
 import net.hypixel.modapi.packet.impl.clientbound.event.ClientboundLocationPacket;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -48,19 +41,15 @@ public final class NoTermTooltipClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         registerHypixelLocationListener();
-        ItemTooltipCallback.EVENT.register(NoTermTooltipClient::processTooltip);
     }
 
-    private static void processTooltip(ItemStack stack, Item.TooltipContext context, TooltipFlag flag, List<Component> lines) {
-        if (!onSkyblock || !onDungeons) return;
+    public static boolean shouldHide() {
+        if (!onSkyblock || !onDungeons) return false;
 
         var screen = Minecraft.getInstance().screen;
-        if (screen == null) return;
+        if (screen == null) return false;
         var title = screen.getTitle().getString(64);
 
-        var matches = TERMINAL_PATTERNS.stream().anyMatch(p -> p.matcher(title).matches());
-        if (!matches) return;
-
-        lines.clear();
+        return TERMINAL_PATTERNS.stream().anyMatch(p -> p.matcher(title).matches());
     }
 }
