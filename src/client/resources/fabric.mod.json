@@ -11,16 +11,16 @@
     "sources": "https://github.com/sophuric/NoTermTooltip"
   },
   "license": "MPL-2.0",
-  "icon": "assets/${mod_id}/icon.png",
+  "icon": "assets/notermtooltip/icon.png",
   "environment": "client",
-  "accessWidener": "${mod_id}.classtweaker",
+  "accessWidener": "notermtooltip.classtweaker",
   "entrypoints": {
     "client": [
-      "${mod_group}.NoTermTooltipClient"
+      "me.sophur.notermtooltip.NoTermTooltipClient"
     ]
   },
   "mixins": [
-    "${mod_id}.client.mixins.json"
+    "notermtooltip.client.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",

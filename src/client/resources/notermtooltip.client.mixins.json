@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "${mod_group}.mixin",
+  "package": "me.sophur.notermtooltip.mixin",
   "compatibilityLevel": "JAVA_25",
   "client": [
     "TooltipMixin"
