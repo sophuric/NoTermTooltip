@@ -1,8 +1,8 @@
 [versions]
 minecraft = "26.2"
 
-fabric_loader = "0.19.3"
-fabric_loom = "1.17-SNAPSHOT"
+fabric_loader = "0.19.5"
+fabric_loom = "1.18-SNAPSHOT"
 
 fabric_api = "0.158.0+26.2"
 
@@ -11,7 +11,6 @@ hypixelModAPI_mod = "1.0.2+build.1+mc26.1"
 
 minotaur = "2.+"
 
-devAuth = "1.2.2"
 modMenu = "20.0.1"
 noChatRestrictions = "Fabric-MC26.2-v1.2.2"
 sodium = "mc26.2-0.9.1-fabric"
@@ -29,7 +28,6 @@ fabric_api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.r
 hypixelModAPI = { group = "net.hypixel", name = "mod-api", version.ref = "hypixelModAPI" }
 hypixelModAPI_mod = { group = "maven.modrinth", name = "hypixel-mod-api", version.ref = "hypixelModAPI_mod" }
 
-devAuth = { group = "me.djtheredstoner", name = "DevAuth-fabric", version.ref = "devAuth" }
 modMenu = { group = "maven.modrinth", name = "modmenu", version.ref = "modMenu" }
 noChatRestrictions = { group = "maven.modrinth", name = "no-chat-restrictions", version.ref = "noChatRestrictions" }
 sodium = { group = "maven.modrinth", name = "sodium", version.ref = "sodium" }
