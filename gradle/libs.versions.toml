@@ -9,7 +9,7 @@ fabric_api = "0.158.0+26.2"
 hypixelModAPI = "1.0.2"
 hypixelModAPI_mod = "1.0.2+build.1+mc26.1"
 
-minotaur = "2.+"
+modPublishPlugin = "2.2.1"
 
 modMenu = "20.0.1"
 noChatRestrictions = "Fabric-MC26.2-v1.2.2"
@@ -17,7 +17,7 @@ sodium = "mc26.2-0.9.1-fabric"
 
 [plugins]
 fabric_loom = { id = "net.fabricmc.fabric-loom", version.ref = "fabric_loom" }
-minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }
+modPublishPlugin = { id = "me.modmuss50.mod-publish-plugin", version.ref = "modPublishPlugin" }
 
 [libraries]
 minecraft = { group = "mojang", name = "minecraft", version.ref = "minecraft" }

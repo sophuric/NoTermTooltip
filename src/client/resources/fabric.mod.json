@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "id": "${mod_id}",
   "version": "${mod_version}",
-  "name": "No Terminal Tooltips",
+  "name": "${mod_name}",
   "description": "Hides item tooltips in F7 terminals",
   "authors": [
     "sophur"
   ],
   "contact": {
-    "sources": "https://github.com/sophuric/NoTermTooltip"
+    "sources": "https://github.com/${repo_github}"
   },
   "license": "MPL-2.0",
   "icon": "assets/notermtooltip/icon.png",

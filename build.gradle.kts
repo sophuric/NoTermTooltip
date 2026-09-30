@@ -1,13 +1,14 @@
 plugins {
     java
     alias(libs.plugins.fabric.loom)
-    alias(libs.plugins.minotaur)
+    alias(libs.plugins.modPublishPlugin)
 }
 
-val modrinthProjectID = property("modrinth.id").toString()
 val modID = property("mod.id").toString()
+val modName = property("mod.name").toString()
 val modGroup = property("mod.group").toString()
 val version = property("mod.version").toString()
+val githubRepo = property("repo.github").toString()
 
 base.archivesName = "${modID}-${version}"
 
@@ -58,8 +59,10 @@ dependencies {
 
 val resourcesVars = mapOf(
     "mod_id" to modID,
+    "mod_name" to modName,
     "mod_group" to modGroup,
     "mod_version" to version,
+    "repo_github" to githubRepo,
     "fabric_loader_version" to libs.versions.fabric.loader.get(),
     "fabric_api_version" to libs.versions.fabric.api.get(),
     "minecraft_version" to libs.versions.minecraft.get(),
@@ -85,16 +88,30 @@ tasks.withType<JavaCompile> {
 
 tasks.jar { from("LICENSE") { rename { "${it}_${base.archivesName.get()}" } } }
 
-modrinth {
-    token = System.getenv("MODRINTH_TOKEN")
-    projectId = modrinthProjectID
-    versionNumber = version
-    versionType = "release"
-    uploadFile.set(tasks.jar)
-    gameVersions.addAll(libs.versions.minecraft.get())
-    loaders.add("fabric")
-    dependencies {
-        required.project("fabric-api")
+publishMods {
+    file = tasks.jar.get().archiveFile
+    modLoaders.add("fabric")
+
+    changelog = providers.environmentVariable("MOD_CHANGELOG")
+    type = STABLE
+    displayName = "$modName $version for Minecraft ${libs.versions.minecraft.get()}"
+
+    changelog = providers.fileContents(layout.projectDirectory.file("CHANGELOG.md")).asText
+
+    modrinth {
+        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+
+        projectId = property("modrinth.id").toString()
+        minecraftVersions.add(libs.versions.minecraft.get())
+
+        requires("fabric-api")
     }
-    syncBodyFrom = rootProject.file("README.md").readText()
+
+    github {
+        accessToken = providers.environmentVariable("GITHUB_TOKEN")
+
+        repository = githubRepo
+        tagName = version
+        commitish = providers.environmentVariable("GIT_BRANCH")
+    }
 }
