@@ -5,6 +5,10 @@ build/
 out/
 classes/
 
+# publishing
+
+CHANGELOG.md
+
 # eclipse
 
 *.launch

@@ -92,7 +92,6 @@ publishMods {
     file = tasks.jar.get().archiveFile
     modLoaders.add("fabric")
 
-    changelog = providers.environmentVariable("MOD_CHANGELOG")
     type = STABLE
     displayName = "$modName $version for Minecraft ${libs.versions.minecraft.get()}"
 
