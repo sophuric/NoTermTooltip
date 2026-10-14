@@ -88,6 +88,7 @@ tasks.withType<JavaCompile> {
 
 tasks.jar { from("LICENSE") { rename { "${it}_${base.archivesName.get()}" } } }
 
+publishMods.version = version
 publishMods {
     file = tasks.jar.get().archiveFile
     modLoaders.add("fabric")
