@@ -47,7 +47,7 @@ loom {
         sourceSet("client")
     }
 
-    accessWidenerPath = file("src/main/resources/$modId.classtweaker")
+    accessWidenerPath = file("src/client/resources/$modId.classtweaker")
 }
 
 repositories {
