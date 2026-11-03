@@ -4,9 +4,9 @@ plugins {
     alias(libs.plugins.modPublishPlugin)
 }
 
-val modId = property("mod.id").toString()
-val modName = property("mod.name").toString()
-val modGroup = property("mod.group").toString()
+val modId = "notermtooltip"
+val modName = "NoTermTooltip"
+val modGroup = "me.sophur"
 val modVersion = property("mod.version").toString()
 
 val githubRepo = property("repo.github").toString()
